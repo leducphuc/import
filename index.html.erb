@@ -1,0 +1,38 @@
+<h3><%= t "imports.import_data" %></h3>
+<div class="row">
+  <div class="col-md-12">
+    <%= form_tag imports_path, method: :post, multipart: true do %>
+      <div class="control-group">
+        <% Settings.import.data_types.each do |data_type| %>
+          <div class="list-group-items select-file-buttons" data-id="<%= data_type[:model] %>">
+            <div class="checkbox">
+              <label class="control-label">
+                <%= check_box_tag "type[]",
+                  "#{data_type[:model]}",
+                  nil, class: "check-box-tag hidden",
+                  id: "check-box-tag-file-select-#{data_type[:model]}" %>
+                <%= t "imports.#{data_type[:model]}" %>
+              </label>
+            </div>
+            <div class="file-field-uploaded">
+              <%= file_field_tag "file[]", id: "file-select-#{data_type[:model]}",
+                class: "file-select",
+                data: {model: "#{data_type[:model]}"},
+                accept: allowed_file(data_type[:model]) %>
+            </div>
+            <div id="loading-image-<%= data_type[:model] %>"  class=" load-image hidden">
+              <%= image_tag "loading.gif", size: Settings.import.image_loading_size %>
+            </div>
+          </div>
+          <hr>
+        <% end %>
+      </div>
+      <div>
+        <%= submit_tag t("imports.import"),
+          data: {disable_with: t("buttons.importing")},
+          class: "btn btn-primary",
+          id: "form-submit-btn" %>
+      </div>
+    <% end %>
+  </div>
+</div>

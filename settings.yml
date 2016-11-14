@@ -1,0 +1,365 @@
+number_of_decimal: 2
+fields_decimal:
+  "difference": 2
+  "rank": 1
+record: "record"
+params:
+  projects:
+    admin: "admin"
+    lab_price: "lab-price"
+    assignees: "assignees"
+flag_size: "20x15"
+languages:
+  en: "en"
+  jp: "jp"
+pagination:
+  per_page: 25
+data:
+  category:
+    qa: "QA"
+    vbse: "VBSE"
+    vpq: "VPG"
+    vpm: "VPM"
+    comtor: "Comtor"
+    bo: "BO"
+    tc: "TC"
+    part_time: "PartTime"
+    resigned: "Resigned"
+    jpm: "JPM"
+    jpg: "JPG"
+    ceo: "CEO"
+    vpq_s: "VPG(S)"
+    cpg: "CPG"
+    bpg: "BPG"
+    intern: "Intern"
+    infra: "Infra"
+    designer: "Designer"
+    cto: "CTO"
+    coo: "COO"
+    j_designer: "JDesigner"
+  evaluation_type:
+    member: "Member"
+    leader: "Leader"
+    manager: "Manager"
+    fixed: "Fixed"
+  branch:
+    nb: "No branch"
+    vn: "Vietnam"
+    bl: "Bangladesh"
+    pl: "Philipines"
+    jp: "Japan"
+price_master:
+  default_value: 0.0
+  precision: 2
+projects:
+  types:
+    fixed: "fixed"
+    labor: "labor"
+  flag:
+    calculate: "calculate"
+  update_status: "update_status"
+  data_filter_default: "{\"list_filter_select\":{\"status\":[\"open\",\"in progress\"]},
+    \"list_filter_range\":{},\"list_filter_date\":{}}"
+employee:
+  category:
+    manager: "Manager"
+    member: "Member"
+    leader: "Leader"
+    coo: "COO"
+    cto: "CTO"
+    ceo: "CEO"
+  contact_type:
+    three_years: "3 years"
+    indefinite_term: "Indefinite term"
+    six_months_one_year: "6 months - 1 year"
+    apprenticeship: "Apprenticeship"
+    probationary: "Probationary"
+  tabs:
+    projects: "Project"
+    evaluation: "Evaluation"
+    salary: "Salary"
+evaluations:
+  column_headers:
+    uid: "UID"
+    name: "Name"
+    category: "Category"
+    division: "Division"
+    join_date: "Join Date"
+    resigned_date: "Resigned Date"
+    main_skill: "Main Skill"
+    current_rank: "Rank"
+    knowledge: "Knowledge"
+    quality: "Quality"
+    autonomy: "Autonomy"
+    complexity: "Complexity"
+    context: "Context"
+    hourenso: "Hou-Ren-So"
+    teamwork: "Teamwork"
+    management: "Management"
+    coding: "Coding"
+    qa: "QA"
+  fields:
+    - knowledge
+    - quality
+    - autonomy
+    - complexity
+    - context
+    - hourenso
+    - teamwork
+    - management
+    - coding
+    - qa
+salaries:
+  submit_value:
+    fix: "Fix"
+  types:
+    fix: "fix"
+    save: "save"
+import:
+  file_types:
+    csv:
+      - ".csv"
+      - ".xls"
+      - ".xlsx"
+    json: ".json"
+  employee:
+    id: 0
+    email: 1
+    display_name: 13
+    card_number: 15
+    uid: 18
+    avatar: 17
+    contract_type: 24
+    identity_id: 26
+    join_date: 30
+    resigned_date: 31
+    user_type: 39
+  team:
+    id: id
+    name: name
+    group_id: group_id
+  group:
+    id: id
+    name: name
+    parent_id: parent_id
+  groupemployee:
+    id: id
+    group_id: group_id
+    employee_id: employee_id
+  data_types:
+    - model: employee
+      verify_attribute: email
+    - model: team
+      verify_attribute: id
+    - model: group
+      verify_attribute: id
+    - model: group_employee
+      verify_attribute: id
+  image_loading_size: "30x30"
+  salary: salary
+price_history:
+  price:
+    employee_name: "Employee name : "
+    project_name: "Project name : "
+  header:
+    rank: "Rank"
+    category: "Category"
+    ratio: "Ratio"
+    price_master: "Price Master Value"
+    start_date: "Start Date"
+    end_date: "End Date"
+sync_data:
+  - model: Group
+    verify_attribute: name
+  - model: Team
+    verify_attribute: name
+  - model: Employee
+    verify_attribute: sync_key
+time:
+  format: "%Y-%m-%d"
+values:
+  value_0: "0"
+  value_1: "1"
+properties:
+  employee:
+    uid: "uid"
+    employee_id: "id"
+    employee_name: "name"
+    join_date: "join_date"
+    resigned_date: "resigned_date"
+    skill_name: "skill_name"
+    category_id: "category_id"
+  category:
+    category: "name"
+  rank:
+    evaluation_rank_value: "name"
+  project:
+    project_name: "name"
+  price_master:
+    value: "value"
+  reason: "reason"
+  ratio: "ratio"
+  check: "check"
+  action_for_discount: "action_for_discount"
+  discount: "discount"
+  start_date: "start_date"
+  end_date: "end_date"
+  employee_id: "employee_id"
+  project_id: "project_id"
+  id: "id"
+values:
+  value_0: 0
+  value_1: 1
+data_types_import:
+  employee: "employee"
+  group_employee: "group_employee"
+  team: "team"
+  group: "group"
+collum_check_import:
+  employee: "uid"
+  group_employee: "user_id"
+  team: "group_id"
+  team_name: "name"
+  group: "parent_id"
+sync_salaries:
+  drive_url: "https://www.googleapis.com/auth/drive "
+  spreadsheets_url: "https://spreadsheets.google.com/feeds/"
+  valid_link: "docs.google.com/spreadsheets"
+  validate:
+    code: "Employees' code"
+    row: 1
+    col: 3
+  uid_col: 2
+  start_salaries_col: 8
+  years_row: 0
+  months_row: 1
+sync_evaluations:
+  validate:
+    code: "Employees' code"
+    row: 1
+    col: 2
+  uid_col: 3
+  knowledge_col: 13
+  qa_col: 22
+  Ruby_col: 21
+  INFRA_col: 34
+  GOAL_col: 35
+  skill_row: 1
+sync_projects:
+  validate:
+    - Name
+    - Customer
+    - Leader
+    - Manager
+    - Status
+  name_col: 1
+  params:
+    - name
+    - customer
+    - project_leader
+    - manager
+    - status
+sync_employees:
+  validate:
+    code: "Employees' code"
+    row: 1
+    col: 2
+  uid_col: 0
+  salary_col: 5
+  category_col: 2
+key_assignees:
+  - uid
+  - employee_id
+  - employee_name
+  - category
+  - skill_name
+  - join_date
+  - resigned_date
+  - divisions
+  - category_id
+divisions: "divisions"
+sync_functions:
+  - None
+  - Salary_history
+  - Evaluation
+  - Project_information
+  - Employees
+  - Assignees
+assignees_filter:
+  None: none
+  Free: free
+  No money: no-money
+  End in this month: end-this-month
+  More than 1 project: more-than-one
+assignee_fields:
+  - :ratio
+  - :billing
+  - :reason
+  - :action_for_discount
+  - :check
+  - :rank
+  - :category
+  - :start_date
+  - :payment
+  - :employee_id
+  - :project_id
+  - :price_master
+  - :discount
+  - :value
+  - :end_date
+  - :deleted_at
+month_data:
+  project: ""
+  project_id: ""
+  rank: ""
+  ratio: ""
+  payment: ""
+  price: ""
+  billing: ""
+  discount: ""
+  diff: ""
+  reason: ""
+  action_for_discount: ""
+  check: ""
+monthly_price:
+  attributes:
+    - :id
+    - :assignee_id
+    - :diff
+    - :billing
+    - :payment
+    - :value
+    - :project_name
+    - :project_id
+    - :rank_name
+    - :rank_id
+    - :ratio
+    - :price_master_id
+    - :discount
+    - :reason
+    - :action_for_discount
+    - :check
+    - :project_status
+    - :deleted
+    - :end_this_month
+    - :start_date
+    - :category_id
+employee_data:
+  attributes:
+    - :employee_id
+    - :u
+    - :uid
+    - :name
+    - :category_id
+    - :category_name
+    - :division
+    - :join_date
+    - :resigned_date
+    - :skill_name
+    - :rank_id
+    - :rank_name
+chart:
+  step: 5000000
+synchronize:
+  hr_email: "nguyen.binh.dieu@framgia.com"
+  hr_token: "mD7mntqqXpvz2spncy5P"
